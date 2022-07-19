@@ -21,9 +21,15 @@ export const Weather = ({ captialName }) => {
     current: {
       country: "",
       id_day: "",
+      temperature: "",
+      weather_descriptions: "",
+      image: "",
+      is_day: "",
+      weather_icons: "",
     },
     request: {
       language: "",
+      query: "",
     },
   });
   const navigate = useNavigate();
@@ -37,6 +43,7 @@ export const Weather = ({ captialName }) => {
         `http://api.weatherstack.com/current?access_key=bd8a663f3cf8c87ebdfb421a119e36df&query=${captialName}`
       );
       const data = await response.data;
+      console.log(data);
 
       setWeather(data);
     } catch (err) {
@@ -51,14 +58,14 @@ export const Weather = ({ captialName }) => {
       </View>
       <View style={styles.weather}>
         <Text style={styles.text}> Country : {weather.location.country}</Text>
-        <Text style={styles.text}>City : {weather.request.query}</Text>
+        <Text style={styles.text}>City : {weather?.request?.query}</Text>
         <Text style={styles.text}>
-          Temperature : {weather.current.temperature}
+          Temperature : {weather?.current?.temperature}
         </Text>
         <Text style={styles.text}>
-          Description : {weather.current.weather_descriptions}
+          Description : {weather?.current?.weather_descriptions}
         </Text>
-        <Text style={styles.text}>Day : {weather.current.is_day}</Text>
+        <Text style={styles.text}>Day : {weather?.current?.is_day}</Text>
         <View>
           <Image
             source={{
