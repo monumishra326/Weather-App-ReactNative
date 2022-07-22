@@ -33,7 +33,7 @@ export const Inputs = ({ eventer }) => {
   };
 
   return (
-    <>
+    <View style={styles.box2}>
       <TextInput
         onChangeText={disablebutton}
         style={styles.main}
@@ -42,14 +42,34 @@ export const Inputs = ({ eventer }) => {
 
       <TouchableOpacity onPress={NameList}>
         <View style={styles.box}>
-          <Text style={styles.btn1}>Click me</Text>
+          <Text style={styles.btn1}>Search</Text>
         </View>
       </TouchableOpacity>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  box2: {
+    flex: 1,
+    width: "40%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 80,
+    marginHorizontal: 500,
+    backgroundColor: "white",
+
+    // borderWidth: 3,
+    // borderColor: "red",
+    shadowColor: "#1E212D",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
   main: {
     backgroundColor: "white",
     borderWidth: 1,
@@ -58,13 +78,15 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 20,
     marginTop: 40,
+    paddingHorizontal: 40,
   },
   box: {
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 40,
     backgroundColor: "#6750a4",
     padding: 10,
-    borderRadius: 60,
+    paddingHorizontal: 30,
+    borderRadius: 5,
   },
   btn1: {
     color: "white",

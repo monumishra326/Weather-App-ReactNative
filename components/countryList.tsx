@@ -37,26 +37,39 @@ export const CountryList = ({ data, CC }) => {
   };
   return (
     <ScrollView>
-      <View>
-        <Text style={styles.text1}>Country Details</Text>
-        <View>
+      <View style={styles.box1}>
+        <Text style={{ fontSize: 40, fontFamily: "serif", fontWeight: "bold" }}>
+          Country Details
+        </Text>
+
+        <View style={styles.box}>
           {countryList.map((e, i) => {
             const image = e.flags.png;
 
             return (
-              <View style={styles.container} key={i}>
+              <View
+                key={i}
+                style={{
+                  flex: 2,
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                  marginTop: 20,
+                }}
+              >
                 <Text>Capital: {e.capital}</Text>
+
                 <Text>Population: {e.population}</Text>
-                <Text>latlng: {e.latlng}</Text>
+                <Text>Lat: {e.latlng}</Text>
                 <View>
                   <Text>Flag : </Text>
                   <Image
                     source={{
                       uri: `${image}`,
                     }}
-                    style={{ width: 200, height: 100 }}
+                    style={{ width: 50, height: 50 }}
                   />
                 </View>
+
                 <TouchableOpacity onPress={() => Weatherdetails(e)}>
                   <View style={styles.weather}>
                     <Text style={styles.button}>Captial Weather</Text>
@@ -77,30 +90,44 @@ export const CountryList = ({ data, CC }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 10,
-    marginVertical: 5,
-    backgroundColor: "white",
+  box: {
+    width: "70%",
+    marginVertical: 80,
+    marginHorizontal: 800,
+    backgroundColor: "lightgrey",
+    textAlign: "center",
+
+    // borderWidth: 3,
+    // borderColor: "red",
+    flexDirection: "column",
+    shadowColor: "#1E212D",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+    fontFamily: "serif",
   },
+
   wrapper: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
     backgroundColor: "#6750a4",
     padding: 10,
     borderRadius: 60,
     marginBottom: 40,
+    marginHorizontal: 50,
+    paddingHorizontal: 50,
   },
   button: {
     color: "white",
     fontWeight: "bold",
   },
-  text1: {
-    fontWeight: "bold",
-    display: "flex",
-    alignItems: "center",
-    marginVertical: 10,
-    fontSize: 30,
-  },
+
   weather: {
     marginVertical: 20,
     backgroundColor: "#6750a4",
@@ -108,5 +135,26 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 10,
     alignItems: "center",
+  },
+  box1: {
+    flex: 1,
+    width: "70%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 80,
+    marginHorizontal: 300,
+    backgroundColor: "white",
+
+    // borderWidth: 3,
+    // borderColor: "red",
+    shadowColor: "#1E212D",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+    fontFamily: "serif",
   },
 });
